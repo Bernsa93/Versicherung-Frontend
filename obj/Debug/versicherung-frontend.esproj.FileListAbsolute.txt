@@ -1,0 +1,2 @@
+C:\Users\alexb\OneDrive\Dokumente\App-Frontend\versicherung-frontend\obj\Debug\versicherung-frontend.esproj.CoreCompileInputs.cache
+C:\Users\alexb\source\repos\Versicherung-Frontend\obj\Debug\versicherung-frontend.esproj.CoreCompileInputs.cache
