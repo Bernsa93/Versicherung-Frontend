@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+import InputField from './components/InputField'
+import SelectField from './components/SelectField'
+import FormBox from './components/FormBox'
+import ResultBox from './components/ResultBox'
+
 export default function App() {
     const [kilometers, setKilometers] = useState('')
     const [vehicleType, setVehicleType] = useState('')
@@ -40,44 +45,61 @@ export default function App() {
     }
 
     return (
-        <div style={{ padding: 20 }}>
-            <h1>Versicherungsprämie berechnen</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="number"
-                    value={kilometers}
-                    onChange={(e) => setKilometers(e.target.value)}
-                    placeholder="Kilometerleistung"
-                    required
-                />
-                <select
-                    value={vehicleType}
-                    onChange={(e) => setVehicleType(e.target.value)}
-                    required
-                >
-                    <option value="">Fahrzeugtyp wählen</option>
-                    <option value="kleinwagen">Kleinwagen</option>
-                    <option value="suv">SUV</option>
-                    <option value="sportwagen">Sportwagen</option>
-                </select>
-                <input
-                    value={postcode}
-                    onChange={(e) => setPostCode(e.target.value)}
-                    placeholder="Postleitzahl"
-                    maxLength={5}
-                    required
-                />
-                <button type="submit">Berechnen</button>
-            </form>
+        <div style={{ padding: 20, backgroundColor: '#525252', minHeight: '100vh' }}>
+            <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Versicherungsprämie berechnen</h1>
 
-            {result && (
-                <div style={{ marginTop: 20 }}>
-                    <h2>Berechnete Prämie: {result.calculatedPremium?.toFixed(2)} €</h2>
-                    <p>Kilometerfaktor: {result.mileageFactor}</p>
-                    <p>Fahrzeugfaktor: {result.vehicleTypeFactor}</p>
-                    <p>Regionsfaktor: {result.regionFactor}</p>
-                </div>
-            )}
+            <FormBox>
+                <form onSubmit={handleSubmit}>
+                    <InputField
+                        label="Kilometerleistung"
+                        type="number"
+                        value={kilometers}
+                        onChange={(e) => setKilometers(e.target.value)}
+                        placeholder=''
+                    />
+                    <SelectField
+                        label="Fahrzeugtyp"
+                        value={vehicleType}
+                        onChange={(e) => setVehicleType(e.target.value)}   
+                        options={[
+                            { value: 'kleinwagen', label: 'Kleinwagen' },
+                            { value: 'suv', label: 'SUV' },
+                            { value: 'sportwagen', label: 'Sportwagen' }
+                        ]}
+                    />
+                    <InputField
+                        label="Postleitzahl"
+                        value={postcode}
+                        onChange={(e) => setPostCode(e.target.value)}
+                        placeholder="z.B. 12345"
+                        maxLength={5}
+                    />
+                    <button
+                        type="submit"
+                        style={{
+                            width: '100%',
+                            padding: 10,
+                            backgroundColor: '#007bff',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: 4,
+                            cusor: 'pointer',
+                            maringTop: 10,
+                            fontSize: 16
+                        }}> 
+                        Berechnen
+                    </button>
+                </form>
+
+                {result && (
+                    <ResultBox>
+                        <h2>Berechnete Prämie: {result.calculatedPremium?.toFixed(2)} €</h2>
+                        <p>Kilometerfaktor: {result.mileageFactor}</p>
+                        <p>Fahrzeugfaktor: {result.vehicleTypeFactor}</p>
+                        <p>Regionsfaktor: {result.regionFactor}</p>
+                    </ResultBox>
+                )}
+            </FormBox>
         </div>
     )
 }
