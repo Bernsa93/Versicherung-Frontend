@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|c:\\users\\alexb\\source\\repos\\versicherung-frontend\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|solutionrelative:src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|c:\\users\\alexb\\source\\repos\\versicherung-frontend\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|c:\\users\\alexb\\source\\repos\\versicherung-frontend\\src\\components\\inputfield.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|solutionrelative:src\\components\\inputfield.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|c:\\users\\alexb\\source\\repos\\versicherung-frontend\\src\\components\\resultbox.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|solutionrelative:src\\components\\resultbox.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|c:\\users\\alexb\\source\\repos\\versicherung-frontend\\src\\components\\formbox.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8574E154-8E25-DF91-4D4F-83432A662FED}|versicherung-frontend.esproj|solutionrelative:src\\components\\formbox.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormBox.jsx",
+              "DocumentMoniker": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\FormBox.jsx",
+              "RelativeDocumentMoniker": "src\\components\\FormBox.jsx",
+              "ToolTip": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\FormBox.jsx",
+              "RelativeToolTip": "src\\components\\FormBox.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-09T17:22:58.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InputField.jsx",
+              "DocumentMoniker": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\InputField.jsx",
+              "RelativeDocumentMoniker": "src\\components\\InputField.jsx",
+              "ToolTip": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\InputField.jsx",
+              "RelativeToolTip": "src\\components\\InputField.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-09T17:22:41.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ResultBox.jsx",
+              "DocumentMoniker": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\ResultBox.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ResultBox.jsx",
+              "ToolTip": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\components\\ResultBox.jsx",
+              "RelativeToolTip": "src\\components\\ResultBox.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-09T17:22:17.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.jsx",
+              "DocumentMoniker": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\main.jsx",
+              "RelativeDocumentMoniker": "src\\main.jsx",
+              "ToolTip": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\main.jsx",
+              "RelativeToolTip": "src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-09T17:12:22.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\App.jsx",
+              "ToolTip": "C:\\Users\\alexb\\source\\repos\\Versicherung-Frontend\\src\\App.jsx",
+              "RelativeToolTip": "src\\App.jsx",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAwFsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-09T17:03:25.405Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

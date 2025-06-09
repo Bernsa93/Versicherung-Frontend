@@ -17,17 +17,17 @@ export default function App() {
 
         const estimatedKilometers = parseInt(kilometers, 10)
         if (isNaN(estimatedKilometers) || estimatedKilometers < 0) {
-            alert('Bitte gib eine g¸ltige Kilometerleistung ein.')
+            alert('Bitte gib eine g√ºltige Kilometerleistung ein.')
             return
         }
 
         if (!vehicleType) {
-            alert('Bitte w‰hle einen Fahrzeugtyp.')
+            alert('Bitte w√§hle einen Fahrzeugtyp.')
             return
         }
 
         if (!postcode.match(/^\d{5}$/)) {
-            alert('Bitte gib eine g¸ltige 5-stellige Postleitzahl ein.')
+            alert('Bitte gib eine g√ºltige 5-stellige Postleitzahl ein.')
             return
         }
 
@@ -40,13 +40,13 @@ export default function App() {
             setResult(res.data)
         } catch (error) {
             console.error(error)
-            alert('Fehler bei der Berechnung. Bitte Backend pr¸fen.')
+            alert('Fehler bei der Berechnung. Bitte Backend pr√ºfen.')
         }
     }
 
     return (
         <div style={{ padding: 20, backgroundColor: '#525252', minHeight: '100vh' }}>
-            <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Versicherungspr‰mie berechnen</h1>
+            <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Versicherungspr√§mie berechnen</h1>
 
             <FormBox>
                 <form onSubmit={handleSubmit}>
@@ -93,9 +93,9 @@ export default function App() {
 
                 {result && (
                     <ResultBox>
-                        <h2>Berechnete Pr‰mie: {result.calculatedPremium?.toFixed(2)} Ä</h2>
-                        <p>Kilometerfaktor: {result.mileageFactor}</p>
-                        <p>Fahrzeugfaktor: {result.vehicleTypeFactor}</p>
+                        <h2>Berechnete Pr√§mie: {result.calculatedPremium?.toFixed(2)} ‚Ç¨</h2>
+                        <p>Kilometerfaktor: {result.kmFactor}</p>
+                        <p>Fahrzeugfaktor: {result.vehicleFactor}</p>
                         <p>Regionsfaktor: {result.regionFactor}</p>
                     </ResultBox>
                 )}

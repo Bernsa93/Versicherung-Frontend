@@ -7,7 +7,7 @@ export default function ResultBox({ children }) {
             borderRadius: 6,
             padding: 16,
             marginTop: 20,
-            backgroundColor: '#fafafa'
+            backgroundColor: '##212121'
         }}>
             {children}
         </div>

@@ -10,7 +10,7 @@ export default function SelectField({ label, value, onChange, options }) {
                 style={{ width: '100%', padding: 8, boxSizing: 'border-box' }}
                 required
             >
-                <option value="">Bitte w‰hlen</option>
+                <option value="">Bitte w√§hlen</option>
                 {options.map(({ value, label }) => (
                     <option key={value} value={value}>{label}</option>
                 ))}
