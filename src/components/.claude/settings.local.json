@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i '128s/#e9ecef/#f1f3f5/' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")",
+      "Bash(sed -i '131s/#e2e3e5/#dee2e6/' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")",
+      "Bash(sed -i '131s/#838383/#fff/' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")",
+      "Bash(sed -i '133s/#838383/#6c757d/' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")",
+      "Bash(sed -i '133s/#333/#212529/' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")",
+      "Bash(sed -i 's/#d4edda/#e9ecef/g; s/#c3e6cb/#dee2e6/g; s/#155724/#495057/g' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/AI-KI-Component.jsx\")",
+      "Bash(sed -i 's/#2e2e2e/#f8f9fa/g; s/#495057/#6c757d/g; s/#e0e0e0/#dee2e6/g; s/#ccc/#e0e0e0/g; s/#007bff/#0066cc/g; s/#28a745/#28a745/g' \"C:/Users/alexb/OneDrive/Dokumente/GitHub/Versicherung-Frontend/src/components/ChatWindow.jsx\")"
+    ]
+  }
+}

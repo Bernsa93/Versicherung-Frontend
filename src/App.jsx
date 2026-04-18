@@ -5,12 +5,14 @@ import InputField from './components/InputField'
 import SelectField from './components/SelectField'
 import FormBox from './components/FormBox'
 import ResultBox from './components/ResultBox'
+import ChatWindow from './components/ChatWindow'
 
 export default function App() {
     const [kilometers, setKilometers] = useState('')
     const [vehicleType, setVehicleType] = useState('')
     const [postcode, setPostCode] = useState('')
     const [result, setResult] = useState(null)
+    const [kiAvailable] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -31,10 +33,15 @@ export default function App() {
             return
         }
 
+        // KI-Vorschlag bevorzugen, falls verfügbar
+        const selectedVehicleType = kiAvailable
+            ? vehicleType
+            : (vehicleType || '')
+
         try {
             const res = await axios.post('http://localhost:8080/api/premium/calculate', {
                 estimatedKilometers,
-                vehicleType,
+                vehicleType: selectedVehicleType,
                 postcode
             })
             setResult(res.data)
@@ -44,11 +51,19 @@ export default function App() {
         }
     }
 
+    // KI-Vorschlag in das Dropdown übernehmen
+    const handleKIVehicleClass = (suggestedClass) => {
+        setVehicleType(suggestedClass)
+    }
+
     return (
         <div style={{ padding: 20, backgroundColor: '#525252', minHeight: '100vh' }}>
             <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Versicherungsprämie berechnen</h1>
 
             <FormBox>
+                {/* KI-Chat-Fenster für Fahrzeugklassenermittlung */}
+                <ChatWindow onVehicleClassDetermined={handleKIVehicleClass} />
+
                 <form onSubmit={handleSubmit}>
                     <InputField
                         label="Kilometerleistung"
@@ -60,11 +75,16 @@ export default function App() {
                     <SelectField
                         label="Fahrzeugtyp"
                         value={vehicleType}
-                        onChange={(e) => setVehicleType(e.target.value)}   
+                        onChange={(e) => setVehicleType(e.target.value)}
                         options={[
-                            { value: 'kleinwagen', label: 'Kleinwagen' },
+                            { value: 'mikroauto', label: 'Kleinwagen' },
+                            { value: 'kleinvan', label: 'Kleinvan' },
+                            { value: 'kombi', label: 'Kombi' },
+                            { value: 'limousine', label: 'Limousine' },
+                            { value: 'crossover', label: 'Crossover' },
                             { value: 'suv', label: 'SUV' },
-                            { value: 'sportwagen', label: 'Sportwagen' }
+                            { value: 'sportwagen', label: 'Sportwagen' },
+                            { value: 'anders', label: 'anders' }
                         ]}
                     />
                     <InputField
@@ -83,10 +103,10 @@ export default function App() {
                             color: '#fff',
                             border: 'none',
                             borderRadius: 4,
-                            cusor: 'pointer',
-                            maringTop: 10,
+                            cursor: 'pointer',
+                            marginTop: 10,
                             fontSize: 16
-                        }}> 
+                        }}>
                         Berechnen
                     </button>
                 </form>
