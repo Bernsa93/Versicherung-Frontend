@@ -1,17 +1,15 @@
 import React from 'react'
 
-export default function FormBox({ children }) {
+export default function FormBox({ children, onSubmit }) {
     return (
-        <div style={{
-            border: '1px solid #e0e0e0',
-            borderRadius: 8,
+        <form onSubmit={onSubmit} style={{
+            background: 'var(--color-bg-card)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 0,
             padding: 20,
-            maxWidth: 400,
-            margin: '0 auto',
-            backgroundColor: '#5c5c5c',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
         }}>
             {children}
-        </div>
+        </form>
     )
 }

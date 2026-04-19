@@ -21,7 +21,6 @@ export default function ChatWindow({ onVehicleClassDetermined }) {
     const handleKICall = async () => {
         if (!inputValue.trim()) return
 
-        // System Nachricht hinzufügen
         setMessages(prev => [...prev, {
             type: 'user',
             text: inputValue
@@ -38,18 +37,15 @@ export default function ChatWindow({ onVehicleClassDetermined }) {
             const aiResponse = res.data
             const suggestedClass = aiResponse.suggestedVehicleType || 'kleinwagen'
 
-            // KI Antwort
             setMessages(prev => [...prev, {
                 type: 'ai',
                 text: `Basierend auf deiner Beschreibung (*${aiResponse.description}*), empfehle ich die Fahrzeugklasse **${aiResponse.suggestedVehicleType.toUpperCase()}**.\n\n${aiResponse.reason || 'Dies ist eine KI-generierte Empfehlung.'}`
             }])
 
-            // KI-Vorschlag in Dropdown übernehmen
             if (onVehicleClassDetermined && suggestedClass !== confirmedVehicleClass) {
                 onVehicleClassDetermined(suggestedClass)
             }
 
-            // Bestätigungsmeldung
             setMessages(prev => [...prev, {
                 type: 'system',
                 text: 'Klicke auf "Annehmen", um diesen Vorschlag zu bestätigen.'
@@ -74,66 +70,27 @@ export default function ChatWindow({ onVehicleClassDetermined }) {
             type: 'system',
             text: `✅ Die Fahrzeugklasse "${vehicleClass.toUpperCase()}" wurde bestätigt und übernommen!`
         }])
-        // Event-Trigger für Elternkomponente
         if (onVehicleClassDetermined) {
             onVehicleClassDetermined(vehicleClass)
         }
     }
 
     return (
-        <div style={{
-            border: '1px solid #dee2e6',
-            borderRadius: 8,
-            backgroundColor: '#5c5c5c',
-            overflow: 'hidden'
-        }}>
-            <div style={{
-                padding: '12px 16px',
-                backgroundColor: '#5c5c5c',
-                borderBottom: '1px solid #dee2e6',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            }}>
-                <h3 style={{ margin: 0 }}>🤖 KI-Fahrzeug-Assistent</h3>
+        <div className="chat-window-container">
+            <div className="chat-header">
+                <h3>🤖 KI-Fahrzeug-Assistent</h3>
                 {confirmedVehicleClass && (
-                    <span style={{
-                        backgroundColor: '#5c5c5c',
-                        color: '#6c757d',
-                        padding: '4px 10px',
-                        borderRadius: 12,
-                        fontSize: 12,
-                        fontWeight: 'bold'
-                    }}>
+                    <span className="badge">
                         Bestätigt: {confirmedVehicleClass.toUpperCase()}
                     </span>
                 )}
             </div>
 
-            <div style={{
-                height: 200,
-                overflowY: 'auto',
-                padding: 12,
-                backgroundColor: '#5c5c5c'
-            }}>
+            <div className="chat-messages">
                 {messages.map((msg, idx) => (
                     <div
                         key={idx}
-                        style={{
-                            marginBottom: 10,
-                            maxWidth: '80%',
-                            padding: '8px 12px',
-                            borderRadius: 8,
-                            backgroundColor:
-                                msg.type === 'user' ? '#f1f3f5' :
-                                msg.type === 'ai' ? '#e9ecef' :
-                                msg.type === 'error' ? '#f8d7da' :
-                                            msg.type === 'system' ? '#dee2e6' : '#5c5c5c',
-                            color:
-                                msg.type === 'user' ? '#6c757d' :
-                                msg.type === 'error' ? '#721c24' : '#333',
-                            marginLeft: msg.type === 'user' ? 'auto' : 0
-                        }}
+                        className={`chat-message ${msg.type}`}
                     >
                         {msg.text.split('\n').map((line, lineIdx) => (
                             <p key={lineIdx} style={{ margin: 0 }}>
@@ -145,11 +102,7 @@ export default function ChatWindow({ onVehicleClassDetermined }) {
                 <div ref={messagesEndRef} />
             </div>
 
-            <div style={{
-                padding: 12,
-                borderTop: '1px solid #ddd',
-                backgroundColor: '#5c5c5c'
-            }}>
+            <div className="chat-input-area">
                 <div style={{ marginBottom: 8 }}>
                     <input
                         type="text"
@@ -158,45 +111,19 @@ export default function ChatWindow({ onVehicleClassDetermined }) {
                         onKeyDown={(e) => e.key === 'Enter' && handleKICall()}
                         disabled={loading}
                         placeholder="Beschreibe dein Fahrzeug..."
-                        style={{
-                            width: '100%',
-                            padding: 10,
-                            boxSizing: 'border-box',
-                            borderRadius: 4,
-                            border: '1px solid #e0e0e0'
-                        }}
+                        className="chat-input"
                     />
                 </div>
                 <div style={{ display: 'flex', gap: 8 }}>
                     <button
                         onClick={handleKICall}
                         disabled={loading || !inputValue.trim()}
-                        style={{
-                            flex: 1,
-                            padding: 10,
-                            backgroundColor: loading || !inputValue.trim() ? '#3d3d3d' : '#007bff',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: 4,
-                            cursor: (loading || !inputValue.trim()) ? 'not-allowed' : 'pointer',
-                            fontWeight: 'bold'
-                        }}
+                        className={loading || !inputValue.trim() ? 'chat-query-btn disabled' : 'chat-query-btn'}
                     >
                         {loading ? 'Denken...' : 'Abfragen'}
                     </button>
                     {confirmedVehicleClass && (
-                        <button
-                            onClick={() => handleConfirm(confirmedVehicleClass)}
-                            style={{
-                                padding: '8px 16px',
-                                backgroundColor: '#28a745',
-                                color: '#5c5c5c',
-                                border: 'none',
-                                borderRadius: 4,
-                                cursor: 'pointer',
-                                fontWeight: 'bold'
-                            }}
-                        >
+                        <button className="chat-confirm-btn" onClick={() => handleConfirm(confirmedVehicleClass)}>
                             ✅ Annehmen
                         </button>
                     )}
